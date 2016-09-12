@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
 """
-Kjapp kode for aa videresende UDP data
+Simple UDP packet forwarder.
+Listen to a udp socket, and fires the same packet to remote destination(s)
 """
+
 import socket
 import sys, time, string
 
@@ -27,7 +29,7 @@ if __name__ == "__main__":
                 print "%s listenport remotehost1:port1 remotehostN:portN ..." % sys.argv[0]
                 sys.exit(-1)
         listenport = int(sys.argv[1])
-        print "Local foward port %d" % listenport
+        print "Local forward port %d" % listenport
         remotes = []
         for pair in sys.argv[2:]:
                 host,port = string.split(pair,":")
